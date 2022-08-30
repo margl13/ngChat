@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {AuthenticationService} from "./services/authentication.service";
+import {Router} from "@angular/router";
+import {UserService} from "./services/user.service";
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +10,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ngchat';
+
+  user$ = this.userService.currentUserProfile$
+
+  constructor(private authService: AuthenticationService,
+              private router: Router,
+              private userService: UserService) {
+  }
+
+
+  logout() {
+    this.authService.logout().subscribe(() => {
+      this.router.navigate([''])
+    })
+  }
 }

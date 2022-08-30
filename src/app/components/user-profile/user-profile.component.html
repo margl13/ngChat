@@ -1,0 +1,43 @@
+<div clas="wrap">
+  <div class="container" *ngIf="user$ | async as user">
+    <div class="h2">
+      <h2>User Profile</h2>
+    </div>
+    <div class="profile-img">
+      <img width="120" height="120" [src]="user.profileImage ?? '/assets/images/profileImage.placeholder.png'">
+      <button (click)="inputPhoto.click()">
+        Upload Photo
+      </button>
+    </div>
+    <input #inputPhoto type="file" hidden (change)="uploadImage($event, user)">
+    <form class="margin-top" [formGroup]="userForm" (ngSubmit)="saveProfile()">
+      <div class="formGroup">
+        <input
+          class="form-input"
+          type="text"
+          formControlName="displayName"
+          placeholder="Display Name"
+        />
+      </div>
+      <div class="formGroup">
+        <input
+          class="form-input"
+          type="number"
+          formControlName="phoneNumber"
+          placeholder="Phone Number"
+        />
+      </div>
+      <div class="formGroup">
+        <button type="submit" class="form-button">
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+

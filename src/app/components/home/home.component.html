@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="room-list mat-elevation-z5">
+    <div class="input-wrapper">
+      <input type="text" placeholder="search or start new chat" [formControl]="searchControl" [matAutocomplete]="users">
+      <mat-autocomplete #users="matAutocomplete">
+        <mat-option *ngFor="let user of users$ | async" (click)="addRoom(user)">
+          {{user?.displayName}}
+        </mat-option>
+      </mat-autocomplete>
+      <hr>
+    </div>
+    <h3>Chats</h3>
+
+    <mat-selection-list [multiple]="false" [formControl]="roomListControl">
+      <mat-divider></mat-divider>
+      <mat-list-option class=room *ngFor="let room of usersRooms$ | async" [value]="room.id">
+        <img mat-list-avatar [src]="room.roomImage ? room.roomImage : 'assets/images/profileImage.placeholder.png'"/>
+        <p mat-line class="room-title">
+          <span class="room-name">{{ room.roomName }}</span>
+          <span class="room-date">{{room.lastMessageDate}}</span>
+        </p>
+        <p mat-line>{{room.lastMessage}}</p>
+        <mat-divider></mat-divider>
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
+  <div class="messages mat-elevation-z5">
+    <div style="position: relative; width: 100%">
+      <div class="messages-header" *ngIf="selectedRoom$ | async as selectedRoom">
+        <div style="display: flex;  align-items: center;">
+          <img [src]="selectedRoom.roomImage ? selectedRoom.roomImage : 'assets/images/profileImage.placeholder.png'">
+          <h2>{{selectedRoom.roomName}}</h2>
+        </div>
+      </div>
+      <ng-template> #noMesseges</ng-template>
+      <div style="position: relative; width: 100%">Messages</div>
+      <mat-divider></mat-divider>
+      <div class="chat-area">
+        <ng-container *ngIf="user$ | async as currentUser">
+          <div class="chat-container"
+               *ngFor="let message of messages$ | async"
+               [ngClass]="{'sender': message.senderId === currentUser.uid}">
+            <div class="chat">
+              {{message.text}}
+              <span class="chat-date">
+              {{message.sentDate | dateDisplay}}
+            </span>
+            </div>
+          </div>
+          <div #endOfChat></div>
+        </ng-container>
+      </div>
+      <div class="input-area" style="position: relative; width: 100%">
+        <mat-form-field appearance="outline">
+          <input [formControl]="messageControl" matInput placeholder="Type your message" (keydown.enter)="send()">
+          <button mat-icon-button matSuffix (click)="send()">
+            <mat-icon>send</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+
+
+

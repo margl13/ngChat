@@ -1,0 +1,160 @@
+.container {
+  display: flex;
+  height: calc(100vh - 70px);
+  background-color: lightcyan;
+}
+
+.room-list {
+  width: 40%;
+  margin: 16px;
+  background-color: #fafafa;
+  border-radius: 14px;
+
+
+  .room-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+  }
+
+  .room {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+  }
+
+
+}
+
+.room-title {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+
+.room-name {
+  font-weight: 500;
+}
+
+.room-date {
+  font-size: 0.7rem;
+  color: rgba(0, 0, 0, 0.7);
+  margin-bottom: 20px;
+}
+
+.room-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+}
+
+.input-wrapper {
+  background-color: lightcyan;
+  margin: 24px;
+  border-radius: 40px;
+}
+
+input {
+  background-color: lightcyan;
+  border-radius: 30px;
+  border: none;
+  width: 80%;
+  height: 45px;
+  text-align: left;
+}
+
+
+.messages {
+  width: 60%;
+  padding: 24px;
+  margin: 16px;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.05);
+  display: flex;
+}
+
+
+.messages-header > img {
+  object-fit: cover;
+}
+
+h2 {
+  margin-left: 10px;
+}
+
+h3 {
+  margin-left: 10px;
+}
+
+
+.chat-area {
+  height: calc(100vh - 300px);
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: auto;
+  border-radius: 16px;
+  flex-direction: column;
+  margin-top: auto;
+
+}
+
+.chat-area > :first-child {
+
+}
+
+.input-area {
+  padding-top: 16px;
+  padding-bottom: 8px;
+  width: 100%;
+  border-radius: 40px;
+}
+
+
+.mat-form-field {
+  width: 100%;
+}
+
+.chat-container {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.chat-container.sender {
+  justify-content: flex-end;
+}
+
+.chat-container.sender > .chat {
+  background-color: lightgray;
+}
+
+.chat {
+  background-color: lightcyan;
+  padding: 8px 100px 18px 8px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  width: fit-content;
+  position: relative;
+}
+
+
+.chat-date {
+  position: absolute;
+  bottom: 2px;
+  right: 8px;
+  font-size: 0.7rem;
+  color: rgba(0, 0, 0, 0.6);
+
+}
+
