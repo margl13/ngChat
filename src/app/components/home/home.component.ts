@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   endOfChat!: ElementRef;
 
   user$ = this.authService.currentUser$;
-  usersRooms$ = this.roomService.usersRooms$
+  usersRooms$ = this.roomService.usersRooms$;
   messages$: Observable<Message[]> | undefined;
 
 
