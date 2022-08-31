@@ -74,15 +74,15 @@ export class RoomService {
   addMessage(roomId: string, message: string): Observable<any> {
     const ref = collection(this.firestore, 'rooms', roomId, 'messages');
     const roomRef = doc(this.firestore, 'rooms', roomId);
-    const thisDay = Timestamp.fromDate(new Date());
+    const today = Timestamp.fromDate(new Date());
     return this.userService.currentUserProfile$.pipe(
       take(1),
       concatMap((user) => addDoc(ref, {
         text: message,
         senderId: user?.uid,
-        sentDate: thisDay,
+        sentDate: today,
       })),
-      concatMap(() => updateDoc(roomRef, {lastMessage: message, lastMassageDate: thisDay}))
+      concatMap(() => updateDoc(roomRef, {lastMessage: message, lastMessageDate: today}))
     )
   }
 

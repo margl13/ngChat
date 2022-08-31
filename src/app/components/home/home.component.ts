@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit {
       );
     })
   );
-
+  myStringifiedJson: any;
 
   selectedRoom$ = combineLatest([
     this.roomListControl.valueChanges,
@@ -59,7 +59,8 @@ export class HomeComponent implements OnInit {
 
   constructor(private authService: AuthenticationService,
               private userService: UserService,
-              private roomService: RoomService) {
+              private roomService: RoomService,
+              private http: HttpClient) {
   }
 
   ngOnInit(): void {
@@ -96,6 +97,8 @@ export class HomeComponent implements OnInit {
         this.scrollDown();
       });
       this.messageControl.setValue('');
+      this.jokeTimeout();
+
     }
   }
 
@@ -107,6 +110,16 @@ export class HomeComponent implements OnInit {
     }, 100);
   }
 
+jokeTimeout() {
+    setTimeout( () => {
+    fetch('https://api.chucknorris.io/jokes/random')
+      .then((res)=> res.json())
+      .then(data => {
+        this.joke = data.value;
+        console.log(this.joke);
+      });
+  }, 10000);
+}
 
 
 

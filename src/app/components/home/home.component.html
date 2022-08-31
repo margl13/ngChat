@@ -10,15 +10,14 @@
       <hr>
     </div>
     <h3>Chats</h3>
-
     <mat-selection-list [multiple]="false" [formControl]="roomListControl">
       <mat-divider></mat-divider>
       <mat-list-option class=room *ngFor="let room of usersRooms$ | async" [value]="room.id">
         <img mat-list-avatar [src]="room.roomImage ? room.roomImage : 'assets/images/profileImage.placeholder.png'"/>
-        <p mat-line class="room-title">
+        <p mat-line class="room-title" style="justify-content: space-between; display: flex;">
           <span class="room-name">{{ room.roomName }}</span>
+          <span class="room-date">{{room.lastMessageDate | dateDisplay}}</span>
         </p>
-        <p mat-line>{{room.lastMessageDate}}</p>
         <p mat-line>{{room.lastMessage}}</p>
         <mat-divider></mat-divider>
       </mat-list-option>
