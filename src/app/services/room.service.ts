@@ -17,6 +17,7 @@ import {concatMap, map, take} from "rxjs/operators";
 import {Room} from "../model/Room";
 import {Message} from "../model/Message";
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -105,6 +106,4 @@ export class RoomService {
       })
     )
   }
-
-
 }

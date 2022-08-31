@@ -27,6 +27,7 @@ import {DateDisplayPipe} from './pipes/dateDisplay.pipe';
 import {DatePipe} from "@angular/common";
 import {FIREBASE_OPTIONS} from "@angular/fire/compat";
 import {AngularFireAuthModule} from "@angular/fire/compat/auth";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import {AngularFireAuthModule} from "@angular/fire/compat/auth";
     MatInputModule,
     MatButtonModule,
     AngularFireAuthModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpClientModule
   ],
   providers: [DatePipe,
     {provide: FIREBASE_OPTIONS, useValue: environment.firebaseConfig}],

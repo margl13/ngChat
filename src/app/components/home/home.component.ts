@@ -8,6 +8,8 @@ import {User} from "../../model/User";
 import {RoomService} from "../../services/room.service";
 import {Room} from "../../model/Room";
 import {Message} from "../../model/Message";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {rejects} from "assert";
 
 @Component({
   selector: 'app-home',
@@ -27,6 +29,8 @@ export class HomeComponent implements OnInit {
   searchControl = new FormControl('');
   roomListControl = new FormControl('');
   messageControl = new FormControl('');
+
+  joke: any
 
 
   usersList$ = combineLatest([this.userService.users$, this.user$]).pipe(
@@ -102,6 +106,16 @@ export class HomeComponent implements OnInit {
       }
     }, 100);
   }
+
+
+
+
+
+
+
+
+
+
 
 
 }
