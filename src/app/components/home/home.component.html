@@ -17,8 +17,8 @@
         <img mat-list-avatar [src]="room.roomImage ? room.roomImage : 'assets/images/profileImage.placeholder.png'"/>
         <p mat-line class="room-title">
           <span class="room-name">{{ room.roomName }}</span>
-          <span class="room-date">{{room.lastMessageDate}}</span>
         </p>
+        <p>{{room.lastMessageDate | dateDisplay}}</p>
         <p mat-line>{{room.lastMessage}}</p>
         <mat-divider></mat-divider>
       </mat-list-option>

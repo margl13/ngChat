@@ -9,45 +9,9 @@
   margin: 16px;
   background-color: #fafafa;
   border-radius: 14px;
-
-
-  .room-container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    position: absolute;
-  }
-
-  .room {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    position: relative;
-  }
-
-
 }
-
-.room-title {
-  display: flex;
-  justify-content: space-between;
-
-}
-
-
 .room-name {
   font-weight: 500;
-}
-
-.room-date {
-  font-size: 0.7rem;
-  color: rgba(0, 0, 0, 0.7);
-  margin-bottom: 20px;
-}
-
-.room-info {
-  display: flex;
-  justify-content: space-between;
 }
 
 img {
