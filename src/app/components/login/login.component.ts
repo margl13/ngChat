@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
     }
   )
 
-  constructor(private authService: AuthenticationService,
+  constructor(public authService: AuthenticationService,
               private router: Router,
               private toast: HotToastService) {
   }
@@ -52,5 +52,8 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/home'])
     })
   }
+
+
+
 
 }

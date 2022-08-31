@@ -5,10 +5,10 @@ import {UserService} from "../../services/user.service";
 import {concatMap} from "rxjs/operators";
 import {HotToastService} from "@ngneat/hot-toast";
 import {FormControl, FormGroup} from "@angular/forms";
-import {untilDestroyed} from "@ngneat/until-destroy";
+import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
 
 
-
+@UntilDestroy()
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',

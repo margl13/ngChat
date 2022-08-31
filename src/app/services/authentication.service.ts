@@ -1,18 +1,16 @@
- import { Injectable } from '@angular/core';
- import {
+import {Injectable} from '@angular/core';
+import {
   Auth,
   authState,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-   updateProfile
- } from "@angular/fire/auth";
- import {from, Observable, of} from "rxjs";
- import firebase from "firebase/compat";
- import UserCredential = firebase.auth.UserCredential;
- import {update} from "@angular/fire/database";
- import {concatMap, switchMap} from "rxjs/operators";
- import {User} from "../model/User";
- import UserInfo = firebase.UserInfo;
+  TwitterAuthProvider,
+} from "@angular/fire/auth";
+import {from, Observable} from "rxjs";
+import {Router} from "@angular/router";
+import {HotToastService} from "@ngneat/hot-toast";
+import {AngularFireAuth} from "@angular/fire/compat/auth";
+
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +20,11 @@ export class AuthenticationService {
   currentUser$ = authState(this.auth);
 
 
-  constructor(private auth: Auth) {
+  constructor(private auth: Auth,
+              private router: Router,
+              private toast: HotToastService,
+              public afAuth: AngularFireAuth,
+  ) {
   }
 
   signUp(email: string, password: string): Observable<any> {
@@ -38,19 +40,19 @@ export class AuthenticationService {
     return from(this.auth.signOut());
   }
 
-  updateProfileData(profileData: Partial<UserInfo>): Observable<any> {
-    const user = this.auth.currentUser;
-    return of(user).pipe(
-      concatMap((user) => {
-        if (!user)
-          throw new Error('Not Authenticated');
 
-
-         return updateProfile(user, profileData)
-      })
-    )
-
+  TwitterAuth() {
+    return this.AuthLogin(new TwitterAuthProvider())
   }
 
 
+  AuthLogin(provider) {
+    return this.afAuth.signInWithPopup(provider).then((result) => {
+      console.log('You have been successfully logged in!');
+    }).catch((error) => {
+      console.log(error);
+    });
+
+
+  }
 }

@@ -6,7 +6,7 @@
 }
 
 .wrap {
-  margin-top: 100px;
+  margin-top: 30px;
   width: 100%;
   height: 100%;
   display: flex;
@@ -20,6 +20,8 @@
   margin: 0 auto;
   border: 1px solid #ddd;
   padding: 2rem;
+  border-radius: 14px;
+
 }
 
 .form-input {
@@ -27,6 +29,7 @@
   border: 1px solid #eeeeee;
   padding: 18px;
   width: 100%;
+  border-radius: 12px;
 }
 
 .form-group {
@@ -40,6 +43,7 @@
   padding: 10px;
   width: 100%;
   text-transform: uppercase;
+  border-radius: 12px;
 }
 
 .form-button:hover {
@@ -58,4 +62,20 @@
 .sign-up-link {
   font-size: 1.2rem;
   margin-left: 8px;
+}
+
+.button {
+  background: #69d2e7;
+  border: 1px solid #ddd;
+  color: #ffffff;
+  padding: 10px;
+  width: 100%;
+  text-transform: uppercase;
+  border-radius: 12px;
+  margin-top: 5px;
+  height: 40px;
+}
+
+.button:hover {
+  background: #69c8e7;
 }
