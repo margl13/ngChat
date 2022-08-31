@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   endOfChat!: ElementRef;
 
   user$ = this.authService.currentUser$;
-  usersRooms$ = this.roomService.usersRooms$;
+  usersRooms$ = this.roomService.usersRooms$
   messages$: Observable<Message[]> | undefined;
 
 
@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit {
       );
     })
   );
-  myStringifiedJson: any;
+
 
   selectedRoom$ = combineLatest([
     this.roomListControl.valueChanges,
@@ -116,7 +116,6 @@ jokeTimeout() {
       .then((res)=> res.json())
       .then(data => {
         this.joke = data.value;
-        console.log(this.joke);
       });
   }, 10000);
 }
