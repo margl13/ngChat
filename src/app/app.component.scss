@@ -15,25 +15,24 @@ li {
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
   background-color: #69d2e7;
   border-radius: 14px;
+  padding: 10px;
 }
 
 .menu {
   display: flex;
   gap: 1em;
-  font-size: 18px;;
+  font-size: 18px;
 }
 
 .menu li:hover {
   background-color: #4c9e9e;
   border-radius: 5px;
-  transition: 0.3s ease;
+  text-align: center;
 }
-
 .menu li {
-  padding: 5px 14px;
+  text-align: center;
 }
 
 .login {
@@ -79,7 +78,6 @@ img {
   height: 40px;
   border-radius: 100%;
   margin-right: 8px;
-
 }
 
 

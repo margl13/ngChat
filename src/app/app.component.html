@@ -15,7 +15,7 @@
         <ng-container *ngIf="user$ | async as user">
           <button>
             <img [src]="user.profileImage ?? '/assets/images/profileImage.placeholder.png'">
-            <span>{{user.displayName}}</span>
+            <span style="justify-content: center">{{user.displayName}}</span>
           </button>
         </ng-container>
       </li>
