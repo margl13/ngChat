@@ -23,6 +23,8 @@ export class HomeComponent implements OnInit {
 
   user$ = this.authService.currentUser$;
   usersRooms$ = this.roomService.usersRooms$;
+
+
   messages$: Observable<Message[]> | undefined;
 
 

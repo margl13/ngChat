@@ -1,6 +1,6 @@
 <nav class="navbar">
-  <ul class="nav-links ml-auto">
-    <div class="menu">
+  <div class="menu">
+    <ul class="nav-links ml-auto">
       <li><a href="/">Home</a></li>
       <li class="login">
         Login
@@ -13,16 +13,16 @@
       <li routerLink="/user-profile">Profile</li>
       <li>
         <ng-container *ngIf="user$ | async as user">
-          <button>
+          <div class="user">
             <img [src]="user.profileImage ?? '/assets/images/profileImage.placeholder.png'">
-            <span style="justify-content: center">{{user.displayName}}</span>
-          </button>
+            <span >{{user.displayName}}</span>
+          </div>
         </ng-container>
       </li>
+    </ul>
+  </div>
 
-    </div>
 
-  </ul>
 </nav>
 
 

@@ -26,7 +26,7 @@
   <div class="messages mat-elevation-z5">
     <div style="position: relative; width: 100%">
       <div class="messages-header" *ngIf="selectedRoom$ | async as selectedRoom">
-        <div style="display: flex;  align-items: center;">
+        <div class="user">
           <img [src]="selectedRoom.roomImage ? selectedRoom.roomImage : 'assets/images/profileImage.placeholder.png'">
           <h2>{{selectedRoom.roomName}}</h2>
         </div>
@@ -52,17 +52,17 @@
           <div #endOfChat></div>
         </ng-container>
       </div>
-      <div class="input-area" style="position: relative; width: 100%">
+      <div class="input-area">
         <mat-form-field appearance="outline">
-          <input [formControl]="messageControl" matInput placeholder="Type your message" (keydown.enter)="send()">
-          <button mat-icon-button matSuffix (click)="send()">
-            <mat-icon>send</mat-icon>
-          </button>
+        <input [formControl]="messageControl" matInput placeholder="Type your message" (keydown.enter)="send()">
+        <button mat-icon-button matSuffix (click)="send()">
+          <mat-icon>send</mat-icon>
+        </button>
         </mat-form-field>
       </div>
     </div>
   </div>
-
+</div>
 
 
 

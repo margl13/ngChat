@@ -61,6 +61,7 @@ export class RoomService {
     )
   }
 
+
   addNameAndImage(userId: string | undefined, rooms: Room[]): Room[] {
     rooms.forEach((room: Room) => {
       const userIndex = room.userIds.indexOf(userId ?? '') === 0 ? 1 : 0;

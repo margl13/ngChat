@@ -13,8 +13,6 @@ li {
 }
 
 .navbar {
-  display: flex;
-  justify-content: space-between;
   background-color: #69d2e7;
   border-radius: 14px;
   padding: 10px;
@@ -30,9 +28,12 @@ li {
   background-color: #4c9e9e;
   border-radius: 5px;
   text-align: center;
+  cursor: pointer;
+
 }
 .menu li {
   text-align: center;
+  margin-left: 20px;
 }
 
 .login {
@@ -70,7 +71,7 @@ button {
   font-size: 16px;
   background-color: #69d2e7;
   border: none;
-  float: right;
+
 }
 
 img {
@@ -78,6 +79,18 @@ img {
   height: 40px;
   border-radius: 100%;
   margin-right: 8px;
+}
+
+ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 
