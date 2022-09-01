@@ -1,6 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AuthenticationService} from "../../services/authentication.service";
-import {FormControl} from "@angular/forms";
+import {UntypedFormControl} from "@angular/forms";
 import {UserService} from "../../services/user.service";
 import {combineLatest, Observable, of} from "rxjs";
 import {map, startWith, switchMap, take, tap} from "rxjs/operators";
@@ -26,9 +26,9 @@ export class HomeComponent implements OnInit {
   messages$: Observable<Message[]> | undefined;
 
 
-  searchControl = new FormControl('');
-  roomListControl = new FormControl('');
-  messageControl = new FormControl('');
+  searchControl = new UntypedFormControl('');
+  roomListControl = new UntypedFormControl('');
+  messageControl = new UntypedFormControl('');
 
   joke: any
 

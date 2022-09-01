@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from "@angular/forms";
+import {AbstractControl, UntypedFormControl, UntypedFormGroup, ValidationErrors, ValidatorFn, Validators} from "@angular/forms";
 import {switchMap} from "rxjs/operators";
 import {AuthenticationService} from "../../services/authentication.service";
 import {HotToastService} from "@ngneat/hot-toast";
@@ -27,11 +27,11 @@ export function passwordMatchValidator(): ValidatorFn {
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
-  form = new FormGroup({
-    name: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', (Validators.required)),
-    confirmPassword: new FormControl('', (Validators.required))
+  form = new UntypedFormGroup({
+    name: new UntypedFormControl('', [Validators.required]),
+    email: new UntypedFormControl('', [Validators.required, Validators.email]),
+    password: new UntypedFormControl('', (Validators.required)),
+    confirmPassword: new UntypedFormControl('', (Validators.required))
   }, {validators: passwordMatchValidator()})
 
   constructor(private authService: AuthenticationService,

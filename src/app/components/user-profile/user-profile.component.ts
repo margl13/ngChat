@@ -4,7 +4,7 @@ import {User} from "../../model/User";
 import {UserService} from "../../services/user.service";
 import {concatMap} from "rxjs/operators";
 import {HotToastService} from "@ngneat/hot-toast";
-import {FormControl, FormGroup} from "@angular/forms";
+import {UntypedFormControl, UntypedFormGroup} from "@angular/forms";
 import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
 
 
@@ -18,10 +18,10 @@ export class UserProfileComponent implements OnInit {
 
   user$ = this.userService.currentUserProfile$;
 
-  userForm = new FormGroup({
-    uid: new FormControl(''),
-    displayName: new FormControl(''),
-    phoneNumber: new FormControl(''),
+  userForm = new UntypedFormGroup({
+    uid: new UntypedFormControl(''),
+    displayName: new UntypedFormControl(''),
+    phoneNumber: new UntypedFormControl(''),
   })
 
   constructor(private authService: AuthenticationService,
